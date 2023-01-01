@@ -12,7 +12,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   void initState() {
     super.initState();
@@ -20,62 +19,50 @@ class _HomePageState extends State<HomePage> {
       setLastCry(DateTime(DateTime.now().year));
     }
   }
+
   @override
   Widget build(BuildContext context) {
-
     int criedSince = getDaysSinceLastCry();
-    
+
     void showCustomSnackbar(SnackBar snackBar) {
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
 
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          "Cry Tracker :')",
-          style: GoogleFonts.getFont(
-            'Kaushan Script',  
-            fontSize: 25,
-            ),
-        ),
-      ),
-      body: Center(
-        child: Column(
+          centerTitle: true,
+          title: Image(
+            image: AssetImage('assets/appBar/appBarTitle.png'),
+            height: 35,
+          )),
+      body: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/backdrop/backdrop.png'),
+                fit: BoxFit.cover)),
+        child: Center(
+            child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           // ignore: prefer_const_literals_to_create_immutables
           children: [
-            const Text(
-              "You havent cried since",
-              style: 
-              TextStyle(
-                color: Color.fromRGBO(149, 149, 149, 1),
-                fontSize: 20
-              )
-            ),
-            
-            Text(
-              criedSince.toString(),
-              style: TextStyle(
-                color: Colors.grey[200],
-                fontSize: 150
-              )
-              ),
-
-            const Text(
-              "days.",
-              style: TextStyle(
-                color: Color.fromRGBO(149, 149, 149, 1),
-                fontSize: 20
-              )
-            ),
+            const Text("You havent cried since",
+                style: TextStyle(color: Colors.white)),
+            Text(criedSince.toString(),
+                style: TextStyle(color: Colors.white, fontSize: 150)),
+            const Text("days.",
+                style: TextStyle(color: Colors.white, fontSize: 20)),
           ],
-        )
+        )),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.water_drop, color: Colors.grey[200], size: 20),
         onPressed: () {
-          showDialog(context: context, builder: (_) => RegisterCryDialogue(setStateCallback: setState, showCustomSnackbarCallback: showCustomSnackbar,));
+          showDialog(
+              context: context,
+              builder: (_) => RegisterCryDialogue(
+                    setStateCallback: setState,
+                    showCustomSnackbarCallback: showCustomSnackbar,
+                  ));
         },
       ),
     );
