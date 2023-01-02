@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
           centerTitle: true,
           title: Image(
             image: AssetImage('assets/appBar/appBarTitle.png'),
-            height: 35,
+            height: 45,
           )),
       body: Container(
         decoration: const BoxDecoration(
@@ -45,12 +45,12 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           // ignore: prefer_const_literals_to_create_immutables
           children: [
-            const Text("You havent cried since",
+            const Text("You haven't cried since",
                 style: TextStyle(color: Colors.white)),
             Text(criedSince.toString(),
                 style: TextStyle(color: Colors.white, fontSize: 150)),
             const Text("days.",
-                style: TextStyle(color: Colors.white, fontSize: 20)),
+                style: TextStyle(color: Colors.white,)),
           ],
         )),
       ),
