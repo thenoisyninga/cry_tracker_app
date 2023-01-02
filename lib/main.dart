@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
         scaffoldBackgroundColor: Colors.grey[900],
+        dialogBackgroundColor: Colors.grey[900],
       ),
       home: const HomePage(),
     );
